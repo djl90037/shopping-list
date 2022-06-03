@@ -34,7 +34,7 @@ let updateQuantity = function () {
 let addItem = function () {
   let newItem = $('#product').val();
   let newPrice = $('#price').val();
-  if (!newItem || isNaN(newPrice)) {
+  if (!newItem || !newPrice) {
     alert('Please ensure your item and price are valid.');
   } else {
     $('#addItem').before('<tr class="item"><td class="name">' + newItem + '</td><td class="price">' + newPrice + '</td><td class="quantity"><input type="number" min="0" value="1"></td><td class="total"></td><td><button class="btn btn-light btn-sm remove">Remove</button></td></tr>')
