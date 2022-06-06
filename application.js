@@ -6,10 +6,12 @@ let updatedTotalPrice = function () {
   $('tbody .item').each(function (i, ele) {
     let individualPrice = parseFloat($(ele).find('.price').text());
     let quantity = parseFloat($(ele).find('.quantity input').val());
-
+    if (!quantity) {
+      quantity = 0;
+    }
     let price = individualPrice * quantity;
     $(ele).find('.total').html(price.toFixed(2));
-    priceArray.push(price || 0);
+    priceArray.push(price);
 
   })
   let updatedTotal = priceArray.length > 0 ? priceArray.reduce(sum) : 0
